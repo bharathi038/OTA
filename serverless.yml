@@ -1,0 +1,35 @@
+service: orderTakingApplication
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: ap-south-1
+  deploymentBucket: serverlessbuild
+  versionFunctions : false
+  iam:
+    role: arn:aws:iam::942430649355:role/lambdaRole    
+  environment:
+    SERVERLESS_STAGE: ${opt:stage, self:provider.stage}
+plugins:
+  - serverless-offline
+package:
+  exclude:
+    - "*.sql"
+    - "./coverage"
+functions:
+  api:
+    handler: handler.request
+    description: Magzter payment application    
+    memorySize: 128
+    timeout: 30
+    events: # The Events that trigger this Function
+      - http: 
+          path: /{fn+}
+          method: any
+          cors: true
+          request: 
+            parameters: 
+               paths: 
+                 fn: true
+
+      

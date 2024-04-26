@@ -1,0 +1,503 @@
+{
+	"info": {
+		"_postman_id": "25462cf2-38bc-4d4e-b9dc-f5ab5891e87a",
+		"name": "OTA Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Peter Pan\",\r\n    \"password\": \"pass12345\",\r\n    \"mobileNo\": \"9123456875\",\r\n    \"emailId\": \"peterpan214@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/user/register",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"password\": \"pass12345\",\r\n    \"emailId\": \"peterpan1@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/user/login",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{JWTTOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{API}}/user/logout",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Cart",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{JWTTOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "{{API}}/user/7/cart",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"7",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Cart remove",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{JWTTOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "{{API}}/user/7/item/3",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"7",
+						"item",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User addto Cart",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{JWTTOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qty\":1, \"restaurantId\":1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/user/7/item/1",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"7",
+						"item",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User place order",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{JWTTOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/user/83/cart/place_order",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"83",
+						"cart",
+						"place_order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User get orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{JWTTOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "{{API}}/user/7/orders?page=1",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"7",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User get order by order id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{JWTTOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "{{API}}/user/7/order/5",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"7",
+						"order",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User current order",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{JWTTOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "{{API}}/user/7/activeOrder",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"user",
+						"7",
+						"activeOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurant Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API}}/restaurant/token",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"restaurant",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurant Add Item",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{RES_JWTTOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Classic Chicken Burger\",\r\n    \"category\": 6,\r\n    \"price\": 119\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/restaurant/1/item",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"restaurant",
+						"1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurant get  items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{RES_JWTTOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{API}}/restaurant/1/items?page=1",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"restaurant",
+						"1",
+						"items"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurant item update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{RES_JWTTOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"status\":\"ACTIVE\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/restaurant/1/item/1",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"restaurant",
+						"1",
+						"item",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurant delete  item",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{RES_JWTTOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "{{API}}/restaurant/1/item/13",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"restaurant",
+						"1",
+						"item",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurant update order status",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT {{RES_JWTTOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"status\":\"PREPARING\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/restaurant/1/order/5",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"restaurant",
+						"1",
+						"order",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API",
+			"value": "https://5rg19e6tog.execute-api.ap-south-1.amazonaws.com/dev"
+		},
+		{
+			"key": "JWTTOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgzLCJuYW1lIjoiUGV0ZXIgUGFuIiwiaWF0IjoxNzE0MDY5MTMxLCJleHAiOjE3MTQxNTU1MzF9.RRYECK7sx7ZWDLIBiTPhJfED-Qgly1SnYZgkO_7Dmds"
+		},
+		{
+			"key": "RES_JWTTOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOjEsIm5hbWUiOiJIYXBweSBEaW5lIiwiaWF0IjoxNzEzODk3ODUyLCJleHAiOjE3MTQ3NjE4NTJ9.Qi9kGTtTyh9tSAgIK2Z-E-F3LnqiRC1qnLGhML9rNok"
+		}
+	]
+}
